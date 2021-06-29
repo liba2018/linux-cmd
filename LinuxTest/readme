@@ -1,0 +1,29 @@
+linux cmd test.
+
+
+检查防火墙状态
+firewall-cmd --state
+
+#手动关闭防火墙
+systemctl stop firewalld.service
+
+#手动开启防火墙
+systemctl start firewalld.service
+
+检查开放的端口
+firewall-cmd --list-ports
+
+查询指定端口
+firewall-cmd --query-port=80/tcp
+
+开放指定端口
+firewall-cmd --zone=public --add-port=80/tcp --permanent
+
+可以开放一个范围的端口
+firewall-cmd --zone=public --add-port=19-21/tcp --permanent
+
+移除指定端口
+firewall-cmd --zone=public --remove-port=80/tcp --permanent
+
+重启防火墙
+firewall-cmd --reload
